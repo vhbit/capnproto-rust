@@ -1,3 +1,3 @@
 markdown: rdiscount
 pygments: true
-baseurl: capnproto-rust
+baseurl: /capnproto-rust
