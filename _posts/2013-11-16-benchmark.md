@@ -55,8 +55,8 @@ throughput of about 206 MB unpacked, or 186 MB packed.
 <img src="{{site.baseurl}}/assets/catrank.png"
      width="500"/>
 
-Here capnproto-rust's relative performance is fairly consistent.
-Performance is also a bit worse than in the "carsales" case. I believe
+Here capnproto-rust's relative performance is fairly consistent,
+and a bit worse than in the "carsales" case. I believe
 the main reason for this is that capnproto-rust is doing extra string
 copies to get around the fact that I have not yet implemented direct
 writing for string fields.
