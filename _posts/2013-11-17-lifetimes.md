@@ -19,7 +19,7 @@ as you can see by comparing
 layout.c++ and layout.rs.
 
 One important  difference is that
-Rust, in addition to
+the Rust language, in addition to
 requiring that we explicitly
 label the pointer manipulations as "unsafe",
 also provides us
@@ -29,7 +29,7 @@ a safe external interface
 on top of them.
 
 To illustrate, let's look at some
-ways to misuse the C++ interface.
+ways one might misuse the C++ interface.
 
 Here's a program that builds two
 `Person` structs, each a part of
@@ -66,7 +66,7 @@ int main(int argc, char* argv[]) {
 
 You might expect the program to print
 "123", but it actually prints "456".
-The `Person::Builder` returned
+The problem is that the `Person::Builder` returned
 by the `returnPersonBuilder()` function
 is unsafe to use because it
 outlives its `MessageBuilder`.
@@ -102,8 +102,49 @@ and to keep track of the *lifetime* of that borrow.
 The Rust typechecker will then be able to detect
 if the message is borrowed again
 or if some sub-builder of it---whose type will
-be annotated with the lifetime---.
+be annotated with the lifetime---outlives the
+lifetime.
 
-To make this concrete...
+To make this concrete, in Rust
+the signature of `MessageBuilder::initRoot` could look something like this:
 
+```
+pub fn initRoot<'a, T : FromStructBuilder<'a>>(&'a mut self) -> T;
+
+```
+
+where `FromStructBuilder` is the trait
+
+```
+pub trait FromStructBuilder<'a> {
+    fn fromStructBuilder(structBuilder : StructBuilder<'a>) -> Self;
+}
+```
+and `StructBuilder` is a low-level type
+which should not be exposed to the safe user interface.
+Here `'a` is the lifetime variable that tracks the borrow
+of the message builder.
+The generated code for `AddressBook` and `Person` will then
+contain implementations for
+the `FromStructBuilder` trait:
+
+```
+impl <'a> FromStructBuilder<'a> for AddressBook::Builder<'a> { ... }
+impl <'a> FromStructBuilder<'a> for Person::Builder<'a> { ... }
+```
+
+Unfortunately, there's one hitch: the Rust compiler does not yet
+quite support this kind of interplay between lifetime
+variables and traits.
+This is why I have been so eagerly watching
+Rust issues [5121](https://github.com/mozilla/rust/issues/5121),
+[7331](https://github.com/mozilla/rust/issues/7331), and
+[10391](https://github.com/mozilla/rust/issues/10391).
+
+In the meantime, capnproto-rust
+does partially enforce the kind of lifetime safety
+described above, but only for message readers, not message builders,
+and only using a somewhat roundabout strategy that makes it
+awkward to support the more complex
+Cap'n Proto types like lists of lists.
 
