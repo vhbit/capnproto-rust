@@ -1,6 +1,6 @@
 ---
 layout: post
-title: this is a test post
+title: Cap'n Proto for Rust is pretty fast
 ---
 
 # this post has no content
@@ -17,6 +17,12 @@ sdfjkdljflasdjflaksd jflkads jflkasd jflkasdj flkasd jflas
 dflasdjf lkasdjfl ajsdflk ajsdlkfjalkdsjf lasdjflkasdjflasdfajsd lkf jas
 
 <img src="{{site.baseurl}}/assets/carsales.png"
+     width="500"/>
+
+<img src="{{site.baseurl}}/assets/catrank.png"
+     width="500"/>
+
+<img src="{{site.baseurl}}/assets/eval.png"
      width="500"/>
 
 
