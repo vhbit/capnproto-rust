@@ -7,8 +7,8 @@ title: lifetime variables and safety
 
 Like its C++ counterpart,
 capnproto-rust relies heavily
-on pointer manipulation
-to achieve performance.
+on raw pointer manipulation
+to achieve good performance.
 In fact,
 the translation
 from C++ to Rust

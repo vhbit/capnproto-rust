@@ -73,11 +73,10 @@ Here we see capnproto-rust's relative performance degrade
 significantly when it must perform I/O.
 I am uncertain why this degradation occurs,
 though it seems to be related to the size of the messages.
-Unpacked, the "eval" messages
-are on average about 1 KB in size,
+Unpacked, the total size of a
+single "eval" request plus a single "eval" response
+is about 1 KB,
 compared to the averages
 of about 12 KB in the "carsales" case
 and about 200 KB in the "catrank" case.
-
-
 
