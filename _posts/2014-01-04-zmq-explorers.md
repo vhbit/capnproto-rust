@@ -1,6 +1,6 @@
 ---
 layout: post
-title: a toy data pipeline with capnproto-rust and zeromq
+title: a data pipeline with zeromq
 ---
 
 4 January 2014
@@ -30,10 +30,12 @@ a "collector" node aggregating and processing the data.
 At the end is a "viewer" node consuming the processed data.
 The explorers communicate to the collector via a publish/subscribe
 pattern, and the viewer communicates with the collector via a request/reply pattern.
-ZeroMQ makes this communication quite simple to express.
+ZeroMQ makes this communication quite simple to express,
+and Cap'n Proto operates directly on the bytes
+moved by ZeroMQ --- no copying or parsing is necessary.
 
 Concretely, the observations of the explorers
-are color values for an image:
+are color values from an image:
 
 ```
 struct Observation {
@@ -50,8 +52,8 @@ struct Observation {
 }
 ```
 
-The explorers randomly move withing the two-dimensional space
-of the image, reporting the colors they observe,
+Each explorer randomly moves within the two-dimensional space
+of the image, reporting the colors it observes,
 fudged by some noise.
 
 The collector maintains a grid that aggregates the reported observations:
