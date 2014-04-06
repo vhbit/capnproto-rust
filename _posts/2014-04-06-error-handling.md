@@ -31,7 +31,7 @@ segmented sequence of bytes,
 with exactly the same format
 whether it's on the wire, on
 disk, or in memory.
-This uniformity of represention
+This uniformity of representation
 means there
 is no encode/decode step,
 which in turn allows
