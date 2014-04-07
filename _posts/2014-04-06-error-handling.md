@@ -15,7 +15,7 @@ it encountered a bad input.
 In the new version, it instead
 falls back to a default value
 and logs an error.
-(edit: this is no longer true; see [update](#update) below.)
+(edit: this is no longer exactly true; see [update](#update) below.)
 
 
 The changes allow capnproto-rust
