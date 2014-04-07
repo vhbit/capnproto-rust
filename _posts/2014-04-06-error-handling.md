@@ -15,6 +15,8 @@ it encountered a bad input.
 In the new version, it instead
 falls back to a default value
 and logs an error.
+(edit: this is no longer true; see [update](#update) below.)
+
 
 The changes allow capnproto-rust
 to fit more nicely
@@ -137,3 +139,16 @@ it would be easy to add a compile-time option
 that would, as before, trigger task failure on malformed
 input. If all messages are from trusted sources, this may be
 a sensible option.
+
+
+#### update (7 April 2014) <a name="update"></a>
+
+Based on some feedback
+from [r/rust](http://www.reddit.com/r/rust/comments/22d36q/error_handling_in_capnprotorust/),
+I've implemented a new plan.
+Now a malformed message *does* cause task failure by default.
+For cases where that behavior is unacceptable,
+you can set the `fail_fast` field of `ReaderOptions` to false,
+on a message-by-message basis. Doing so will
+enable the default-value fall-back described above.
+
