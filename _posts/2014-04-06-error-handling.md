@@ -1,10 +1,8 @@
 ---
 layout: post
 title: error handling
+author: dwrensha
 ---
-
-6 April 2014
-
 
 I've recently made some significant changes
 to how [capnproto-rust](https://www.github.com/dwrensha/capnproto-rust)

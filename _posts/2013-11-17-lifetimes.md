@@ -1,9 +1,8 @@
 ---
 layout: post
 title: lifetime variables and safety
+author: dwrensha
 ---
-
-17 November 2013
 
 Like its C++ counterpart,
 capnproto-rust relies heavily

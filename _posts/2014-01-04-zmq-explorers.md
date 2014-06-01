@@ -1,9 +1,8 @@
 ---
 layout: post
 title: a data pipeline with zeromq
+author: dwrensha
 ---
-
-4 January 2014
 
 As capnproto-rust approaches full feature support
 for Cap'n Proto serialization,

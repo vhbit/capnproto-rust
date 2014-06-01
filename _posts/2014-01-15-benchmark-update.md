@@ -1,9 +1,8 @@
 ---
 layout: post
 title: updated benchmark comparison to C++
+author: dwrensha
 ---
-
-15 January 2014
 
 Two months have passed since I posted an
 [initial benchmark]({{site.baseurl}}/2013/11/16/benchmark.html)

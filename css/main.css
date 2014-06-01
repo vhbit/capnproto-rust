@@ -4,3 +4,8 @@ body { font-family: Helvetica, Sans, Arial;
         margin-right: auto;
         width: 600px;
      }
+
+p.author {
+	padding: 0;
+	font-size: 80%;
+}

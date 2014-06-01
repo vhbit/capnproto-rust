@@ -1,9 +1,8 @@
 ---
 layout: post
 title: benchmark comparison to C++
+author: dwrensha
 ---
-
-16 November 2013
 
 Below I describe the results of a
 performance comparison between
