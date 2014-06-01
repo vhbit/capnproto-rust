@@ -169,7 +169,6 @@ perhaps through the `Encoder` and `Decoder` traits or something similar.
 This would preserve some of the advantages
 of both approaches, but would likely add considerable complexity.
 
-
-
-
-
+The main problem with both of these hybrid approaches
+is that they add an encode/decode step,
+thus taking away the main selling point of Cap'n Proto.
