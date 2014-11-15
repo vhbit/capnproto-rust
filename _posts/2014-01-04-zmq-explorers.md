@@ -11,7 +11,7 @@ slightly more involved example.
 
 
 Thus I present
-[zmq-explorers](https://github.com/dwrensha/capnproto-rust/tree/master/examples/zmq-explorers),
+[zmq-explorers](https://github.com/dwrensha/capnp-zmq-rust/tree/master/example/zmq-explorers),
 a toy data pipeline which uses
 [ZeroMQ](http://zeromq.org/)
 as a transport layer.
