@@ -20,19 +20,16 @@
 //! distributed object-capability layer.
 
 
-#![feature(globs)]
-#![feature(macro_rules)]
-#![feature(phase)]
 #![allow(experimental)]
 #![feature(unsafe_destructor)]
+#![feature(old_impl_check)]
 #![allow(raw_pointer_deriving)]
-#![feature(associated_types)]
 
 #![crate_name="capnp"]
 #![crate_type = "lib"]
 
 // import logging macros
-#[phase(plugin, link)] extern crate log;
+#[macro_use] extern crate log;
 extern crate libc;
 
 // reexports
@@ -63,7 +60,3 @@ pub mod traits;
 pub mod layout_test;
 #[cfg(test)]
 pub mod serialize_packed_test;
-
-
-
-
